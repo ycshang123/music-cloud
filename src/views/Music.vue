@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "About",
+  name: "Music",
   data() {
     return {};
   },

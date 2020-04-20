@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "About",
+  name: "Profile",
   data() {
     return {};
   },
