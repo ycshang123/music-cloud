@@ -160,7 +160,6 @@ export default {
       localStorage.removeItem("token");
       localStorage.removeItem("admin");
       localStorage.removeItem("menuList");
-      this.$store.commit("setUser", null);
       this.$router.push("/login");
     },
     gotoSubPage(path, index, index1) {

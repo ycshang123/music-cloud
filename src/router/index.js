@@ -27,7 +27,7 @@ const routes = [
       {
         path: "/music-list",
         name: "MusicList",
-        component: () => import("../views/other/Profile.vue")
+        component: () => import("../views/music/MusicList.vue")
       },
       {
         path: "/music-type",

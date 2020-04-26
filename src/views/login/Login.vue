@@ -45,13 +45,6 @@
       <div class="content flex-center">
         <h3>请选择您的身份：</h3>
         <div class="item flex-around">
-          <!-- <button
-            v-for="(role, index) in roles"
-            :key="index"
-            @click="gotoIndex(role.roleId)"
-          >
-            {{ role.roleName }}
-          </button> -->
           <v-btn
             color="error"
             dark
@@ -136,6 +129,8 @@ export default {
           } else {
             //只有一个角色
             const roleId = res.data.data.admin.roles[0].roleId;
+            console.log(roleId)
+            localStorage.setItem("roleId", roleId);
             alert(roleId);
             this.$router.push({
               path: "/",
