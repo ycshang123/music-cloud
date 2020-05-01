@@ -39,6 +39,7 @@
           登录
         </button>
         <button class="btn" @click="clear">重置</button>
+        <button @click="goout()">点击使用Github登录</button>
       </div>
     </div>
     <div class="zheZhao flex-center" v-if="status">
@@ -80,6 +81,12 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    goout() {
+      const authorize_uri = "https://github.com/login/oauth/authorize";
+      const client_id = "865db8e3d66345c44f0e";
+      const redirect_uri = "http://localhost:8080/login/oauth2/code/github";
+      window.location.href = `${authorize_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}`;
+    },
     getVerify() {
       console.log(this.validateForm.name);
       this.axios({
@@ -116,7 +123,11 @@ export default {
             id: res.data.data.admin.id,
             name: res.data.data.admin.name,
             roles: res.data.data.admin.roles,
-            avatar: res.data.data.admin.avatar
+            avatar: res.data.data.admin.avatar,
+            phone: res.data.data.admin.phone,
+            gender: res.data.data.admin.gender,
+            address: res.data.data.admin.address,
+            password: res.data.data.admin.password
           };
           //存admin
           localStorage.setItem("admin", JSON.stringify(admin));
@@ -129,7 +140,7 @@ export default {
           } else {
             //只有一个角色
             const roleId = res.data.data.admin.roles[0].roleId;
-            console.log(roleId)
+            console.log(roleId);
             localStorage.setItem("roleId", roleId);
             alert(roleId);
             this.$router.push({

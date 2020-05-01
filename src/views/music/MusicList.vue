@@ -39,7 +39,6 @@ export default {
     };
   },
   created() {
-    alert("开始");
     let index = this.$route.query.index;
     let index1 = this.$route.query.index1;
     this.menus = JSON.parse(localStorage.getItem("menuList"))[index].subMenus[
